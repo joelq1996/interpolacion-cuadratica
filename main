@@ -1,0 +1,18 @@
+clc, clear all, close all
+x0=1;
+x1=4;
+x2=6;
+fx0=0;
+fx1=1.3862;
+fx2=1.7917;
+syms x
+fx = vpa(InterCuad(x0,x1,x2,fx0,fx1,fx2),4)
+fx;
+Raices=vpasolve(fx)%encontrar las raices
+Coeficientes=sym2poly(fx)
+
+figure(1)
+ezplot(fx,[0,13])
+title('Interpolacion Cuadratica')
+axis([0 13 0 5])
+grid on
